@@ -6,6 +6,7 @@ const registerRouter = require('../routers/registerRouter');
 const sellerRouter = require('../routers/sellerRouter');
 const customerRouter = require('../routers/customerRouter');
 const saleRouter = require('../routers/saleRouter');
+const errorMiddleware = require('../middlewares/errorMiddleware');
 
 const app = express();
 app.use(express.json());
@@ -19,5 +20,7 @@ app.use('/seller', sellerRouter);
 app.use('/sale', saleRouter);
 app.use('/customer', customerRouter);
 app.get('/coffee', (_req, res) => res.status(418).end());
+
+app.use(errorMiddleware);
 
 module.exports = app;
