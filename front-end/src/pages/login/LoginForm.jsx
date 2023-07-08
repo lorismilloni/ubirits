@@ -34,7 +34,7 @@ export default function LoginForm() {
       redirect('/admin/manage');
       break;
     default:
-      redirect('notFound');
+      redirect('/login');
     }
   }
   const handleSubmit = async () => {
